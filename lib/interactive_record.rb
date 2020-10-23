@@ -61,7 +61,7 @@ class InteractiveRecord
   def self.find_by(attribute)
     value = attribute.values.first
     values = value.class == Integer ? value : "'#{value}'"
-    sql = "SELECT * FROM #{self.table_name} WHERE #{attribute.keys.first} = #{formatted_value}"
+    sql = "SELECT * FROM #{self.table_name} WHERE #{attribute.keys.first} = #{values}"
     DB[:conn].execute(sql)
   end
 
